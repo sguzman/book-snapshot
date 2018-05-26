@@ -1,1 +1,1 @@
-# book-snapshot
+![Travis](https://travis-ci.org/sguzman/book-snapshot.svg?branch=master)

@@ -1,0 +1,30 @@
+language: generic
+
+sudo: required
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y curl cmake wget
+  - wget 'https://github.com/google/brotli/archive/v1.0.4.tar.gz'
+  - tar zxvf v1.0.4.tar.gz
+  - cd brotli-1.0.4/
+  - cmake .
+  - make
+  - sudo cp ./brotli /bin/brotli
+  - sudo chmod 777 /bin/brotli
+  - cd ..
+install:
+  - git config --global user.name "Salvador Guzman"
+  - git config --global user.email "guzmansalv@gmail.com"
+  - git clone 'https://github.com/sguzman/book-hive'
+  - cd book-hive
+  - mkdir -p hive/
+  - cd hive/
+script:
+  - python main.py | brotli > books.json.brotli
+after_success:
+  - git add books.json.brotli
+  - git commit -m 'Added book hive'
+  - echo $GITHUB_AUTH > ~/.git-credentials
+  - git config --global credential.helper store
+  - git push
