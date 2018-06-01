@@ -21,7 +21,7 @@ install:
   - mkdir -p hive/
   - cd hive/
 script:
-  - python main.py | brotli > books.json.brotli
+  - python ../../main.py | brotli > books.json.brotli
 after_success:
   - git add books.json.brotli
   - git commit -m 'Added book hive'
