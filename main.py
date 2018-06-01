@@ -16,7 +16,7 @@ def remove_prefix(text, prefix):
 
 objects = []
 for book in books:
-    new_book = f'{book}</html>'
+    new_book = '%s</html>' % book
     doc = bs4.BeautifulSoup(new_book, "html.parser")
 
     title = doc.find('h1', class_='post-title').get_text()
