@@ -22,6 +22,7 @@ install:
   - mkdir -p hive/
   - cd hive/
 script:
+  - while true; do echo hearbeart; sleep 5m; done &
   - python ../../main.py ../../snapshot/books.brotli | brotli > books.json.brotli
 after_success:
   - git add books.json.brotli
