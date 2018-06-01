@@ -17,6 +17,7 @@ install:
   - git config --global user.name "Salvador Guzman"
   - git config --global user.email "guzmansalv@gmail.com"
   - git clone 'https://github.com/sguzman/book-hive'
+  - pip install -r requirements.txt
   - cd book-hive
   - mkdir -p hive/
   - cd hive/
