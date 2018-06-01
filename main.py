@@ -42,7 +42,6 @@ for book in books:
     detailsDict['desc'] = p
     detailsDict['categories'] = categories
 
-    sys.stderr.write(img)
     objects.append(detailsDict)
 
 print(json.dumps(objects, sort_keys=True, indent=4))
