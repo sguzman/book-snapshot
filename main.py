@@ -1,8 +1,9 @@
 import brotli
 import bs4
 import json
+import sys
 
-snapshot = './snapshot/books.brotli'
+snapshot = './snapshot/books.brotli' if len(sys.argv) is 1 else sys.argv[1]
 file = open(snapshot, 'rb').read()
 string = brotli.decompress(file)
 books = string.split(b'</html>')[:-1]
